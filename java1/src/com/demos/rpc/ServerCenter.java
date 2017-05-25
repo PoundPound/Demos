@@ -41,12 +41,14 @@ public class ServerCenter implements Server
         {
             try
             {
+                System.out.println("Server listening ...");
                 // 1.监听客户端的TCP连接，接到TCP连接后将其封装成task，由线程池执行
                 executor.execute(new ServerTask(server.accept()));
             }
             finally
             {
-                server.close();
+//                System.out.println("Server stop ...");
+//                server.close();
             }
         }
     }
